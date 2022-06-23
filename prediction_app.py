@@ -1,11 +1,13 @@
 import streamlit as st
-import heart as ht
+#for using the saved model
+import joblib
+import pandas as pd
 
 #giving title
 st.title('Heart Disease Predictor')
 
 #adding navigation bar
-choice= st.sidebar.radio("",['About','Data','Predict','Other info'])
+choice= st.sidebar.radio("",['About','Predict','Other info'])
 
 if choice=='About':
     st.image('Capture.jpg', width= 700)
@@ -35,10 +37,6 @@ if choice=='About':
     2. Have a balanced diet\n
     3. Do Yoga regularly- Specific pranayams for CVDS are Bhastrika, kapalbhati, bahya.''')
     st.video('https://www.youtube.com/watch?v=wrECGnoJPLg')
-
-elif choice=='Data':
-    data_= ht.pd.read_csv('heart.csv')
-    st.table(data_)
 
 elif choice=='Predict':
     age= st.text_input("Age")
@@ -81,8 +79,16 @@ elif choice=='Predict':
        'ChestPainType_TA':pain[2], 'RestingECG_Normal':ecg[0], 'RestingECG_ST':ecg[1], 'ExerciseAngina_Y':angina,
        'ST_Slope_Flat':slope[0], 'ST_Slope_Up':slope[1]}
 
-        df= ht.pd.DataFrame(data,index=[0])
-        predicted= ht.model.predict(df)
+        df= pd.DataFrame(data,index=[0])
+
+        #filename of model
+        model_name= 'heart_model.sav'
+
+        #load the model
+        model= joblib.load(model_name)
+        
+        predicted= model.predict(df)
+        
         if predicted == 0:
             st.success('This person has less chance of Heart Attack.')
         else:
