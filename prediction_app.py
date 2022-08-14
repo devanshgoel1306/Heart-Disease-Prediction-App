@@ -1,13 +1,20 @@
 import streamlit as st
+#for adding navigation bar
+from streamlit_option_menu import option_menu
 #for using the saved model
 import joblib
 import pandas as pd
+
 
 #giving title
 st.title('Heart Disease Predictor')
 
 #adding navigation bar
-choice= st.sidebar.radio("",['About','Predict','Other info'])
+with st.sidebar:
+    choice= option_menu(
+        menu_title="Main Menu",
+        options=['About','Predict','Other info']
+    )
 
 if choice=='About':
     st.image('Capture.jpg', width= 700)
