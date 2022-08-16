@@ -1,6 +1,4 @@
 import streamlit as st
-#for adding navigation bar
-from streamlit_option_menu import option_menu
 
 #giving title
 st.title('About Heart Disease')
