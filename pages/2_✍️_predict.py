@@ -15,7 +15,7 @@ bs= st.radio("Fasting Blood Sugar",[0,1])
 gender= st.radio("Gender",['Male','Female'])
 pain= st.radio("Chest Pain Type",['Atypical Angina','Non Anginal','Asymptomatic','Typical Angina'])
 ecg= st.radio("Resting ECG",['Normal','Left ventricular hypertrophy(LVH)','ST-T wave Abnormal'])
-angina= st.radio("Angina",['Yes','No'])
+angina= st.radio("Excercise Angina",['Yes','No'])
 slope= st.radio("ST slope",['Up','Flat'])
 
 #change the value of variables
