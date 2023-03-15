@@ -3,7 +3,7 @@ import pandas as pd
 #for using the saved model
 import joblib
 
-st.title('Heart Disease Prediction.')
+st.title('Heart Disease Prediction')
 
 age= st.text_input("Age")
 bp= st.text_input("Resting Blood Pressure")
