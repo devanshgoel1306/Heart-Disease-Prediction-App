@@ -2,7 +2,7 @@ import streamlit as st
 
 #giving title
 st.title('About Heart Disease')
-st.image('Capture.jpg', width= 700)
+st.image('heartHomepage.jpg', width= 700)
 
 st.write('''The heart is a fist-sized organ that pumps blood throughout your body. It's the primary organ of your
 circulatory system.
